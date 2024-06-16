@@ -22,6 +22,8 @@
 - 카톡으로 처형식 진행
 - `프로그래머스`, `백준`, `리트코드` 자유선택
 - 언어 자유선택
+
+## 📌 매일 알고리즘 문제 추천받기
 - <a href="https://github.com/tony9402/baekjoon/blob/main/picked.md" target="_blank"> 백준 </a>
 - <a href="https://leetcode.com/problemset/?difficulty=EASY&page=1" target="_blank"> 리트코드 </a>
 
