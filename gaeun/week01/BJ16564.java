@@ -60,3 +60,38 @@ public class BJ16564 {
         System.out.println(T);
     }
 }
+
+//import java.io.*;
+//import java.util.*;
+//
+//public class Main {
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer s = new StringTokenizer(br.readLine());
+//        int N = Integer.parseInt(s.nextToken());
+//        int K = Integer.parseInt(s.nextToken());
+//        int[] levels = new int[N];
+//        for (int a=0; a<N; a++) {
+//            levels[a] = Integer.parseInt(br.readLine());
+//        }
+//        long l = 0;
+//        long r = 2000000001L;
+//        long ans = -1;
+//        while(l<=r) {
+//            long m = (l+r)/2;
+//            long hap = 0;
+//            for (int a=0; a<N; a++) {
+//                if (m-levels[a]>0) {
+//                    hap += m-levels[a];
+//                }
+//            }
+//            if (hap > K) {
+//                r = m-1;
+//            } else {
+//                l = m+1;
+//                ans = m;
+//            }
+//        }
+//        System.out.println(ans);
+//    }
+//}
