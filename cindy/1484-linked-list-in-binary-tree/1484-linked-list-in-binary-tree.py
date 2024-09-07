@@ -18,11 +18,11 @@ class Solution:
                 return False
             if head.val != root.val: # 데이터가 다름
                 return False
+                
             return check(head.next, root.left) or check(head.next, root.right)
         
         if not root:
             return False
-        
         if check(head, root):
             return True
         
