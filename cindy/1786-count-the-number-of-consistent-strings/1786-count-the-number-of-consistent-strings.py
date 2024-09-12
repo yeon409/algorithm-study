@@ -1,14 +1,11 @@
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
-        ans = 0
+        cnt = 0
 
         for word in words:
-            flag = True
             for c in word:
                 if c not in allowed:
-                    flag = False
+                    cnt += 1
                     break
-            if flag:
-                ans += 1
 
-        return ans
+        return len(words) - cnt
