@@ -1,33 +1,19 @@
 class MyCalendarTwo:
     def __init__(self):
-        # List to hold the booked intervals
-        self.bookings = []
-        
+        self.single_bookings = []
+        self.double_bookings = []
+
     def book(self, start: int, end: int) -> bool:
-        # Check for overlaps with existing bookings
-        for a, b in self.bookings:
-            # Check if the new booking overlaps with the existing interval
-            if start < b and end > a:
-                # Calculate the overlapping sub-interval
-                new_start = max(a, start)
-                new_end = min(b, end)
-                
-                # Check if the sub-interval overlaps more than once
-                if self.check(new_start, new_end):
-                    return False  # Overlapping more than once, booking fails
+        # Check if the new event overlaps with any double booking
+        for double_start, double_end in self.double_bookings:
+            if start < double_end and end > double_start:
+                return False
         
-        # If there are no conflicts, add the booking
-        self.bookings.append((start, end))
-        return True  # Booking successful
-    
-    def check(self, start: int, end: int) -> bool:
-        overlap_count = 0
+        # Check if the new event overlaps with any single booking
+        for single_start, single_end in self.single_bookings:
+            if start < single_end and end > single_start:
+                self.double_bookings.append((max(start, single_start), min(end, single_end)))
         
-        for a, b in self.bookings:
-            # Check for strict overlap
-            if start < b and end > a:
-                overlap_count += 1
-                if overlap_count == 2:
-                    return True  # Found more than one overlap
-        
-        return False  # No overlapping found
+        # Add the new event to single bookings
+        self.single_bookings.append((start, end))
+        return True
